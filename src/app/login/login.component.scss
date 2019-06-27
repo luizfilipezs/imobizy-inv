@@ -22,8 +22,8 @@
     @include parentFlex(row, wrap, center);
     .login-input {
       flex-basis: 100%;
-      margin-bottom: 0.9em;
-      padding-bottom: 0.55em;
+      margin-bottom: .9em;
+      padding-bottom: .55em;
       border-bottom: 1px solid $themeColor;
       //text properties
       font-size: 2.1em;
@@ -32,15 +32,22 @@
     }
     .form-submit {
       margin-top: 1.15em;
-      padding: 0.55em 2.15em 0.55em 2.15em;
+      padding: .55em 2.15em .55em 2.15em;
       border-radius: 2.5em;
+      border: .2em solid $themeColor;
       font-size: 2em;
       font-weight: 700;
       text-align: center;
       text-transform: uppercase;
       color: $textColor2;
       @extend %soft-shadow;
+      @include transition(.3s);
+      cursor: pointer;
       background-color: $themeColor;
+    }
+    .form-submit:hover {
+      color: $themeColor;
+      background-color: rgba($textColor2, 0.2);
     }
   }
 }

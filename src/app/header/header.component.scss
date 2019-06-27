@@ -1,0 +1,24 @@
+@import '../../resources.scss';
+
+.main-header {
+  position: fixed;
+  z-index: 1;
+  width: calc(100% - 6em);
+  height: auto;
+  padding: 4em 3em 2em 3em;
+  @include parentFlex(row, wrap, space-between);
+  font-family: $mainFont;
+  font-size: 62.5%;
+  color: $textColor;
+  background-color: #f0f0f0;
+  .header-icon {
+    flex-basis: 4em;
+    height: 4em;
+  }
+  .application-title {
+    align-self: center;
+    font-size: 2.2em;
+    font-weight: 900;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.14);
+  }
+}
