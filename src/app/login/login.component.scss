@@ -1,0 +1,46 @@
+@import '../../resources.scss';
+
+.main {
+  @include parentFlex(row, wrap, center);
+}
+
+.logo {
+  flex-basis: auto;
+  align-self: center;
+  height: 37.48vh;
+}
+
+.centered-box {
+  flex-basis: 100%;
+  align-self: center;
+  height: auto;
+  @include parentFlex(row, wrap, center);
+  .login-form {
+    flex-basis: 100%;
+    height: auto;
+    margin-top: 6.2em;
+    @include parentFlex(row, wrap, center);
+    .login-input {
+      flex-basis: 100%;
+      margin-bottom: 1.8em;
+      padding-bottom: 1.1em;
+      border-bottom: 1px solid $themeColor;
+      //text properties
+      font-size: 2.1em;
+      text-align: center;
+      color: $textColor;
+    }
+    .form-submit {
+      margin-top: 2.3em;
+      padding: 1.1em 4.3em 1.1em 4.3em;
+      border-radius: 2.5em;
+      font-size: 2em;
+      font-weight: 700;
+      text-align: center;
+      text-transform: uppercase;
+      color: $textColor2;
+      @extend %soft-shadow;
+      background-color: $themeColor;
+    }
+  }
+}

@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+/* SCSS by Imobizy */
+
+@import 'resources';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: 0;
+}
+
+input,
+textarea {
+  border: none;
+  @include box-shadow(none);
+  color: inherit;
+  background-color: transparent;
+}
+
+::placeholder { /* Firefox, Chrome, Opera */
+  color: rgba($textColor, 0.81);
+} 
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba($textColor, 0.81);
+} 
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba($textColor, 0.81);
+} 
+
+.main {
+  width: calc(100% - 6em);
+  height: auto;
+  min-height: 100vh;
+  padding: 0 3em 0 3em;
+  font-family: $mainFont;
+  font-size: 62.5%;
+  color: $textColor;
+  @include select(none);
+  @extend %background-gradient;
+}
