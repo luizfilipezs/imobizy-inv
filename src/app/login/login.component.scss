@@ -22,8 +22,8 @@
     @include parentFlex(row, wrap, center);
     .login-input {
       flex-basis: 100%;
-      margin-bottom: 1.8em;
-      padding-bottom: 1.1em;
+      margin-bottom: 0.9em;
+      padding-bottom: 0.55em;
       border-bottom: 1px solid $themeColor;
       //text properties
       font-size: 2.1em;
@@ -31,8 +31,8 @@
       color: $textColor;
     }
     .form-submit {
-      margin-top: 2.3em;
-      padding: 1.1em 4.3em 1.1em 4.3em;
+      margin-top: 1.15em;
+      padding: 0.55em 2.15em 0.55em 2.15em;
       border-radius: 2.5em;
       font-size: 2em;
       font-weight: 700;
