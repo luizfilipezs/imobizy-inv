@@ -3,6 +3,8 @@
 .main-header {
   position: fixed;
   z-index: 1;
+  top: 0;
+  left: 0;
   width: calc(100% - 6em);
   height: auto;
   padding: 4em 3em 2em 3em;
@@ -11,10 +13,12 @@
   font-size: 62.5%;
   color: $textColor;
   background-color: #f0f0f0;
+
   .header-icon {
-    flex-basis: 4em;
+    flex-basis: auto;
     height: 4em;
   }
+
   .application-title {
     align-self: center;
     font-size: 2.2em;

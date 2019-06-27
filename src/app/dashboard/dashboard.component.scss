@@ -1,0 +1,62 @@
+@import '../../resources.scss';
+
+.greeter-text {
+  width: 100%;
+  padding-top: 4.5em;
+  font-size: 3.4em;
+  font-weight: 300;
+  text-align: center;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.14);
+  .bigger-text {
+    font-size: 1.25em;
+  }
+}
+
+.progress-lines {
+  width: 100%;
+  height: 3px;
+  margin-top: 3.5em;
+  .progress-line {
+    height: 100%;
+    float: left;
+  }
+  #concluded-line {
+    width: 20%;
+    background-color: #1D864E;
+  }
+  #unfinished-line {
+    width: 80%;
+    background-color: #CE2C0B;
+  }
+}
+
+.aparted-items {
+  width: 100%;
+  height: auto;
+  margin-top: 5em;
+  @include parentFlex(row, wrap, space-between);
+  .work-data-box {
+    flex-basis: 40%;
+    height: auto;
+    text-align: center;
+    .big-numbers {
+      font-size: 6.5em;
+      font-weight: 300;
+    }
+    .small-text {
+      font-size: 2em;
+      font-weight: 300;
+    }
+  }
+  .action-button {
+    width: 45%;
+    margin-top: 1em;
+    padding: 0.55em 2.15em 0.55em 2.15em;
+    border-radius: 0.5em;
+    font-family: $mainFont;
+    font-size: 2.1em;
+    text-align: center;
+    color: $textColor2;
+    background-color: $themeColor;
+  }
+}
