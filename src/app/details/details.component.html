@@ -1,0 +1,29 @@
+<app-header></app-header>
+<div class="main" ondragstart="return false">
+
+  <h2 class="detailed-title">Informações do ítem</h2>
+  <div *ngIf="item">
+    <p class="label">Código: <span>#{{ item.id }}</span></p>
+    <p class="label">Descrição:</p>
+    <input class="content-input" type="text" value="{{ item.descricao }}">
+    <p class="label">Marca:</p>
+    <input class="content-input" type="text" value="{{ item.marca }}">
+    <p class="label">Modelo:</p>
+    <input class="content-input" type="text" value="{{ item.modelo }}">
+    <p class="label">Complemento:</p>
+    <input class="content-input" type="text" value="{{ item.complemento }}">
+    <p class="label">Descrição:</p>
+    <input class="content-input" type="text" value="{{ item.descricao }}">
+    <p class="label">N° Série:</p>
+    <input class="content-input" type="text" value="{{ item.serie }}">
+    <p class="label">Local:</p>
+    <input class="content-input" type="text" value="{{ item.local }}">
+    <div class="add-photos">
+      <div class="add-icon">
+        <p class="add-symbol"></p>
+      </div>
+      <p class="add-text">Adicionar fotos</p>
+    </div>
+  </div>
+
+</div>

@@ -10,6 +10,11 @@
   outline: 0;
 }
 
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 input,
 textarea {
   border: none;

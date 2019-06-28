@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ScannerComponent } from './scanner/scanner.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   {
@@ -14,8 +16,16 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
+    path: 'scanner/:type',
+    component: ScannerComponent
+  },
+  {
+    path: 'details/:id',
+    component: DetailsComponent
+  },
+  {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/login',
     pathMatch: 'full'
   },
   {
