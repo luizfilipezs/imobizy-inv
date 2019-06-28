@@ -48,6 +48,14 @@ $mainFont: 'Lato', sans-serif;
 	animation: $properties;
 }
 
+@mixin z-index($value) {
+  -webkit-z-index: $value;
+  -moz-z-index: $value;
+  -ms-z-index: $value;
+  -o-z-index: $value;
+  z-index: $value;
+}
+
 @mixin parentFlex($direction, $wrap, $justify) {
 	@extend %flex;
 	flex-direction: $direction;

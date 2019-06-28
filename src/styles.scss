@@ -13,7 +13,7 @@
 a {
   text-decoration: inherit;
   color: inherit;
-}
+} 
 
 input,
 textarea {
@@ -25,15 +25,19 @@ textarea {
 
 ::placeholder { /* Firefox, Chrome, Opera */
   color: rgba($textColor, 0.81);
-} 
+}
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
   color: rgba($textColor, 0.81);
-} 
+}
 
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: rgba($textColor, 0.81);
-} 
+}
+
+ul {
+  list-style: none;
+}
 
 .main {
   width: calc(100% - 6em);

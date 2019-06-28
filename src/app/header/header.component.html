@@ -1,5 +1,6 @@
 <header class="main-header">
   <img class="header-icon" src="assets/icons/logo-cut.png" alt="Imobizy" [routerLink]="['/dashboard']">
   <p class="application-title"><a routerLink="/dashboard">Imobizy</a></p>
-  <img class="header-icon" src="assets/icons/menu.png" alt="Abrir/fechar menu">
+  <img class="header-icon" src="assets/icons/menu.png" alt="Abrir/fechar menu" (click)="toggleMenu()">
 </header>
+<app-menu [isOpen]="menuIsOpen"></app-menu>
