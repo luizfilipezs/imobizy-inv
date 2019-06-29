@@ -10,7 +10,7 @@ import {
 @Component({
   selector: 'app-menu',
   animations: [
-    trigger('openClose', [
+    trigger('openCloseMenu', [
       state('open', style({
         marginRight: '-75%'
       })),
@@ -22,6 +22,22 @@ import {
       ]),
       transition('closed => open', [
         animate('0.2s')
+      ]),
+    ]),
+    trigger('openCloseMask', [
+      state('open', style({
+        marginRight: '-100%',
+        opacity: 0
+      })),
+      state('closed', style({
+        marginRight: 0,
+        opacity: 1
+      })),
+      transition('open => closed', [
+        animate('0.2s')
+      ]),
+      transition('closed => open', [
+        animate('0.3s')
       ]),
     ])
   ],

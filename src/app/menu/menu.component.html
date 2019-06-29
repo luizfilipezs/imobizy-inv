@@ -1,5 +1,4 @@
-<div [@openClose]="isOpen ? 'open' : 'closed'" class="main-menu">
-
+<div [@openCloseMenu]="isOpen ? 'open' : 'closed'" class="main-menu">
   <ul class="menu-items">
     <li class="menu-item">
       <a routerLink="/dashboard">Criar modelo</a>
@@ -12,5 +11,5 @@
       <a routerLink="/dashboard">Suporte técnico</a>
     </li>
   </ul>
-
 </div>
+<div [@openCloseMask]="isOpen ? 'open' : 'closed'" class="background-mask"></div>

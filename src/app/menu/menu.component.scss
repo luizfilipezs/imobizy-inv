@@ -2,7 +2,7 @@
 
 .main-menu {
   position: fixed;
-  @include z-index(1);
+  @include z-index(2);
   right: 0;
   bottom: 0;
   width: 75%;
@@ -11,22 +11,32 @@
   font-family: $mainFont;
   color: $textColor;
   background-color: rgba(#EBEBEB, 0.99);
+  .menu-items {
+    width: calc(100% - 5.2em);
+    height: auto;
+    font-size: 62.5%;
+    padding: 3.5em 2.4em 0 2.4em;
+    .menu-item {
+      margin-bottom: 1em;
+      font-size: 2.2em;
+      text-align: right;
+      text-transform: capitalize;
+    }
+    .line {
+      margin-bottom: 2em;
+      padding-top: 1em 0 .75em 0;
+      border-bottom: 1px solid $themeColor;
+    }
+  }
 }
 
-.menu-items {
-  width: calc(100% - 5.2em);
-  height: auto;
-  font-size: 62.5%;
-  padding: 3.5em 2.4em 0 2.4em;
-  .menu-item {
-    margin-bottom: 1em;
-    font-size: 2.2em;
-    text-align: right;
-    text-transform: capitalize;
-  }
-  .line {
-    margin-bottom: 2em;
-    padding-top: 1em 0 .75em 0;
-    border-bottom: 1px solid $themeColor;
-  }
+.background-mask {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  @include z-index(1);
+  width: 100%;
+  height: calc(100vh - 6.25em);
+  margin-right: -100%;
+  background-color: rgba(0,0,0,0.11);
 }
