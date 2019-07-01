@@ -5,19 +5,17 @@
   <div *ngIf="item">
     <p class="label">Código: <span>#{{ item.id }}</span></p>
     <p class="label">Descrição:</p>
-    <input class="content-input" type="text" value="{{ item.descricao }}">
+    <input class="content-input" type="text" placeholder="Faça um breve resumo" value="{{ item.descricao }}">
     <p class="label">Marca:</p>
-    <input class="content-input" type="text" value="{{ item.marca }}">
+    <input class="content-input" type="text" placeholder="Ex.: Apple, Nike..." value="{{ item.marca }}">
     <p class="label">Modelo:</p>
-    <input class="content-input" type="text" value="{{ item.modelo }}">
+    <input class="content-input" type="text" placeholder="Linha do produto" value="{{ item.modelo }}">
     <p class="label">Complemento:</p>
-    <input class="content-input" type="text" value="{{ item.complemento }}">
-    <p class="label">Descrição:</p>
-    <input class="content-input" type="text" value="{{ item.descricao }}">
+    <input class="content-input" type="text" placeholder="Medidas" value="{{ item.complemento }}">
     <p class="label">N° Série:</p>
-    <input class="content-input" type="text" value="{{ item.serie }}">
+    <input class="content-input" type="text" placeholder="Código identidicador" value="{{ item.serie }}">
     <p class="label">Local:</p>
-    <input class="content-input" type="text" value="{{ item.local }}">
+    <input class="content-input" type="text" placeholder="Onde fica?" value="{{ item.local }}">
     <div class="add-photos">
       <div class="add-icon">
         <p class="add-symbol"></p>

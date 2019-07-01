@@ -63,6 +63,18 @@ $mainFont: 'Lato', sans-serif;
 	justify-content: $justify;
 }
 
+@mixin placeholder($color) {
+	::placeholder { /* Firefox, Chrome, Opera */
+		color: rgba($color, 0.81);
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		color: rgba($color, 0.81);
+	}
+	::-ms-input-placeholder { /* Microsoft Edge */
+		color: rgba($color, 0.81);
+	}
+}
+
 %flex {
 	display: -webkit-box;
   display: -moz-box;

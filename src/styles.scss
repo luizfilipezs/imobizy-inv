@@ -23,17 +23,7 @@ textarea {
   background-color: transparent;
 }
 
-::placeholder { /* Firefox, Chrome, Opera */
-  color: rgba($textColor, 0.81);
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: rgba($textColor, 0.81);
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: rgba($textColor, 0.81);
-}
+@include placeholder($textColor);
 
 ul {
   list-style: none;
@@ -49,4 +39,17 @@ ul {
   color: $textColor;
   @include select(none);
   @extend %background-gradient;
+}
+
+.detailed-title {
+  width: 100%;
+  margin-bottom: 2.25em;
+  padding: .3em 0 .3em 0;
+  border-radius: 2em;
+  font-size: 2em;
+  color: $textColor2;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: $themeColor;
 }

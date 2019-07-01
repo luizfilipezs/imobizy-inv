@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-scanner',
@@ -15,7 +16,11 @@ export class ScannerComponent implements OnInit {
 
   redirect(): void {
     const operationType = this.route.snapshot.paramMap.get('type');
-    this.router.navigate([operationType]);
+    if (operationType === 'register') {
+      this.router.navigate(['/details', '1']);
+    } else {
+      this.router.navigate(['/confirm']);
+    }
   }
 
 }

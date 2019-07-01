@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { DetailsComponent } from './details/details.component';
 import { ScannerComponent } from './scanner/scanner.component';
 import { MenuComponent } from './menu/menu.component';
+import { ModelsModule } from './models/models.module';
+import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +22,23 @@ import { MenuComponent } from './menu/menu.component';
     HeaderComponent,
     DetailsComponent,
     ScannerComponent,
-    MenuComponent
+    MenuComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
+    ModelsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
   ],
+  exports: [],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule { }

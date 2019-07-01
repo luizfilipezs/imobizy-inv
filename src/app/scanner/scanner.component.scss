@@ -1,0 +1,21 @@
+@import '../../resources.scss';
+
+.main {
+  @include parentFlex(row, wrap, center);
+  color: $textColor2;
+  background: #000;
+  .wrapper {
+    flex-basis: 100%;
+    height: auto;
+    align-self: center;
+    text-align: center;
+    h1 {
+      margin-bottom: .5em;
+      font-size: 4em;
+      font-weight: 900;
+    }
+    p {
+      font-size: 2.2em;
+    }
+  }
+}

@@ -26,11 +26,11 @@ import {
     ]),
     trigger('openCloseMask', [
       state('open', style({
-        marginRight: '-100%',
+        zIndex: -1,
         opacity: 0
       })),
       state('closed', style({
-        marginRight: 0,
+        zIndex: 1,
         opacity: 1
       })),
       transition('open => closed', [

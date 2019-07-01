@@ -1,0 +1,30 @@
+@import '../../resources.scss';
+
+.main-wrapper {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  @include parentFlex(row, wrap, center);
+  font-family: $mainFont;
+  font-size: 62.5%;
+  background-color: #41cc56;
+}
+
+.wrapper {
+  flex-basis: 100%;
+  align-self: center;
+  height: auto;
+  @include parentFlex(row, wrap, center);
+  .status-icon {
+    flex-basis: 14em;
+    height: 14em;
+    margin-bottom: 1.8em;
+  }
+  .success-message {
+    width: 100%;
+    font-size: 2.2em;
+    font-weight: 700;
+    text-align: center;
+    color: $textColor2;
+  }
+}
