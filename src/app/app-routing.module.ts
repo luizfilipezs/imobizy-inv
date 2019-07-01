@@ -10,23 +10,38 @@ import { ConfirmComponent } from './confirm/confirm.component';
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {
+      animation: 'Login'
+    }
   },
   {
     path: 'dashboard',
-    component: DashboardComponent
+    component: DashboardComponent,
+    data: {
+      animation: 'Dashboard'
+    }
   },
   {
     path: 'scanner/:type',
-    component: ScannerComponent
+    component: ScannerComponent,
+    data: {
+      animation: 'Scanner'
+    }
   },
   {
     path: 'details/:id',
-    component: DetailsComponent
+    component: DetailsComponent,
+    data: {
+      animation: 'Details'
+    }
   },
   {
     path: 'confirm',
-    component: ConfirmComponent
+    component: ConfirmComponent,
+    data: {
+      animation: 'Confirm'
+    }
   },
   {
     path: '',
