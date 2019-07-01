@@ -15,7 +15,7 @@ export class ConfirmComponent implements OnInit {
   }
 
   redirect(): void {
-    setInterval(() => {
+    setTimeout(() => {
       this.router.navigate(['/dashboard']);
     }, 2000);
   }

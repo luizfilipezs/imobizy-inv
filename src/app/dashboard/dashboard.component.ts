@@ -8,15 +8,9 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  doSomething(): void {
-    setInterval(() => {
-      this.router.navigate(['/confirm']);
-    }, 2000)
   }
 
 }
