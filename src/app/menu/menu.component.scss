@@ -6,7 +6,7 @@
   right: 0;
   bottom: 0;
   width: 75%;
-  height: calc(100vh - 6.25em);
+  height: calc(100vh - 5.6em);
   overflow: auto;
   font-family: $mainFont;
   color: $textColor;
@@ -36,6 +36,6 @@
   position: fixed;
   @include z-index(-1);
   width: 100%;
-  height: calc(100vh - 6.25em);
+  height: calc(100vh - 5.6em);
   background-color: rgba(0,0,0,0.11);
 }

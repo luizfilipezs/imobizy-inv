@@ -7,7 +7,7 @@
   left: 0;
   width: calc(100% - 6em);
   height: auto;
-  padding: 4em 3em 2em 3em;
+  padding: 3em 3em 2em 3em;
   @include parentFlex(row, wrap, space-between);
   font-family: $mainFont;
   font-size: 62.5%;
