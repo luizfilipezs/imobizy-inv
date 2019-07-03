@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-/*
+import { Item } from './item';
 import { Observable } from 'rxjs';
 
-import { Item } from './item';
+/*
+import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -23,7 +24,12 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
-  getItems() {
+  getItemsFromServer() {
     return this.http.get(this.itemsUrl);
+  }
+
+  getLocalItems(): Item[] {
+    const localDB = localStorage.getItem('items');
+    return JSON.parse(localDB) || [];
   }
 }
