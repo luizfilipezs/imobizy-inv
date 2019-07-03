@@ -24,7 +24,7 @@ export class DetailsComponent implements OnInit {
 
   getItem() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getItems()
+    this.service.getItemsFromServer()
       .subscribe(data => this.item = data['items'].find((item: Item) => item.id === id));
   }
 
