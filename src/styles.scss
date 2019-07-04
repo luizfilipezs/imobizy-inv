@@ -53,3 +53,27 @@ ul {
   text-align: center;
   background-color: $themeColor;
 }
+
+.basic-button {
+  width: auto;
+  height: 4.4em;
+  @include parentFlex(row, wrap, center);
+  align-self: center;
+  border-radius: .5em;
+  cursor: pointer;
+  background-color: $themeColor;
+  .btn-icon {
+    align-self: center;
+    flex-basis: auto;
+    height: 40%;
+    margin: .2em .2em 0 .2em;
+    margin-top: .2em;
+    margin-right: 1em;
+  }
+  .btn-text {
+    align-self: center;
+    margin: 0 .2em 0 .2em;
+    font-size: 2em;
+    color: $textColor2;
+  }
+}

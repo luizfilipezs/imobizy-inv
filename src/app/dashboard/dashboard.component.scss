@@ -1,63 +1,53 @@
 @import '../../resources.scss';
 
-.greeter-text {
-  width: 100%;
-  padding-top: 4.25em;
-  font-size: 3.4em;
-  font-weight: 300;
-  text-align: center;
-  text-shadow: 0 3px 6px rgba(0,0,0,0.14);
-  .bigger-text {
-    font-size: 1.25em;
-  }
+.main {
+  min-height: calc(100vh - 8em);
+  padding-top: 8em;
 }
 
-.progress-lines {
-  width: 100%;
-  height: 3px;
-  margin-top: 3.5em;
-  .progress-line {
-    height: 100%;
-    float: left;
-  }
-  #concluded-line {
-    width: 20%;
-    background-color: #1D864E;
-  }
-  #unfinished-line {
-    width: 80%;
-    background-color: #CE2C0B;
-  }
-}
-
-.aparted-items {
+.wrapper {
   width: 100%;
   height: auto;
-  margin-top: 5em;
+  margin-top: 8em;
   @include parentFlex(row, wrap, space-between);
-  .work-data-box {
-    flex-basis: 40%;
+  .half-box {
+    flex-basis: 48%;
     height: auto;
-    text-align: center;
+    @include parentFlex(row, wrap, flex-end);
     .big-numbers {
-      font-size: 6.5em;
+      flex-basis: 100%;
+      font-size: 6em;
       font-weight: 300;
+      text-align: center;
+      margin-bottom: .1em;
     }
     .small-text {
+      flex-basis: 100%;
       font-size: 2em;
       font-weight: 300;
+      text-align: center;
+      .stronger {
+        font-weight: 700;
+      }
+    }
+    .basic-button {
+      flex-basis: 90%;
     }
   }
-  .action-button {
-    width: 45%;
-    margin-top: 1em;
-    padding: 0.55em 2.15em 0.55em 2.15em;
-    border-radius: 0.5em;
-    font-family: $mainFont;
-    font-size: 2.1em;
+}
+
+.messenger-footer {
+  position: fixed;
+  @include z-index(1);
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: .7em 0 .7em 0;
+  background-color: #D0D0D0;
+  .useful-message {
+    font-size: 1.6em;
+    font-weight: 700;
     text-align: center;
-    color: $textColor2;
-    cursor: pointer;
-    background-color: $themeColor;
   }
 }

@@ -1,27 +1,38 @@
 <app-header></app-header>
 <div class="main" ondragstart="return false">
 
-  <h1 class="greeter-text"><span class="bigger-text"><strong>20%</strong> do</span><br>processo completo!</h1>
-
-  <div class="progress-lines">
-    <div class="progress-line" id="concluded-line"></div>
-    <div class="progress-line" id="unfinished-line"></div>
-  </div>
-
-  <div class="aparted-items">
-    <div class="work-data-box">
+  <div class="wrapper">
+    <div class="half-box">
       <p class="big-numbers">16</p>
-      <p class="small-text">ítens<br><strong>registrados</strong></p>
+      <p class="small-text">ítens<br><span class="stronger">registrados</span></p>
     </div>
-    <div class="work-data-box">
-      <p class="big-numbers">4</p>
-      <p class="small-text">ítens<br><strong>auditados</strong></p>
+    <div class="half-box">
+      <div class="basic-button">
+        <p class="btn-text">+ Registrar</p>
+      </div>
+      <div class="basic-button">
+        <img class="btn-icon" src="https://lh3.googleusercontent.com/d6wlae_oJuOZAOyS5K-ZbQduqu79fAAmTVRCw_3AMvrG9LT_Z3xnYnwe6rGHuI0IqtEL71VE9o6xfQdRKy5A_iDpiYOOdrKrytKtEr-_RmlGsyzdbf9cOENA5HU7GvJxW_TwDWOMqMvZ4ATl08kFcn538d4IB_O1sSlMnPL6yzPZ5hdcpKYJE_k-mE7nNT5MMgv_MyIsoxc6jRZ7gzzqHtdI8wPhrWoScYH0sMojNcd57FvEPisiYIxVzqILjIx6SO_f-gpBIjVqKyUyHXc2tL851VqRzj1UG9NOE6yZG60ZHAK_LiLPHPMAEiXut0gqqsst7aA7KD0DRxR2M7O6gAH1qrGHXAAAxow0fkr1wCymqPtfTJmfBkxqwYX8IRMXauAiEO-XmLaO37895z1EVwmSZFpTjwXE8yPAyFjc9fYYQsFXq-C5De_X3gt2BNtu1mBe4ycM-5OKqlql7K0YZpJL59QgKfu-aNFvQjbDbSU5ae44yeGSHuqM79g3I1MmWdFvAj4j8rbJsZg_57TDiGJGgjoYWxTB1qBw0tJRaxRmF4FOUQSyQ-tylbvyJvMBC32s3LtyJbb6krSBCSb7ZRdx4x3Kn7boWnSb5mDPFCw6YJtH4mQJgzo8pd15r8y-6IAa2FLanpvkxfJfXu46U-A1ECgZJOc=s98-no" alt="Sincronizar">
+        <p class="btn-text">Sincronizar</p>
+      </div>
     </div>
   </div>
 
-  <div class="aparted-items">
-    <input type="button" class="action-button" value="+ Registrar" [routerLink]="['/scanner', 'register']">
-    <input type="button" class="action-button" value="+ Auditar" [routerLink]="['/scanner', 'audit']">
+  <div class="wrapper">
+    <div class="half-box">
+      <p class="big-numbers">4</p>
+      <p class="small-text">ítens<br><span class="stronger">auditados</span></p>
+    </div>
+    <div class="half-box">
+      <div class="basic-button">
+        <p class="btn-text">+ Auditoria</p>
+      </div>
+      <div class="basic-button">
+        <p class="btn-text">+ Registrar</p>
+      </div></div>
+  </div>
+
+  <div class="messenger-footer">
+    <p class="useful-message">20% dos ítens registrados foram auditados</p>
   </div>
   
 </div>
