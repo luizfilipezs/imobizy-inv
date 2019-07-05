@@ -7,4 +7,5 @@ export class Item {
   serie: string;
   fotos: string[];
   local: string;
+  ultimaAlteracao: Date;
 }

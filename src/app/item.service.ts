@@ -24,17 +24,14 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
-  getItemsFromServer() {
-    return this.http.get(this.itemsUrl);
+  getLocal(): Item[] {
+    return JSON.parse(localStorage.getItem('items')) || [];
   }
 
-  getLocalItems(): Item[] {
-    const localDB = localStorage.getItem('items');
-    return JSON.parse(localDB) || [];
-  }
+  // local operations
 
-  saveLocalItem(item: Item): void {
-    let local = this.getLocalItems();
+  saveLocal(item: Item): void {
+    let local = this.getLocal();
     const i = local.findIndex(localItem => localItem.id === item.id);
     if (i >= 0) {
       local[i] = item;
@@ -44,31 +41,55 @@ export class ItemService {
     localStorage.setItem('items', JSON.stringify(local));
   }
 
-  saveServerItems(items: Item[]): Observable<Item[]> {
-    return this.http.post<Item[]>(this.itemsUrl, items, httpOptions)
+  // server operations
+
+  getServer() {
+    return this.http.get(this.itemsUrl);
+  }
+
+  postServer(item: Item): Observable<Item> {
+    return this.http.post<Item>(this.itemsUrl, item, httpOptions)
       .pipe(
         catchError(handleError)
       );
   }
 
-  syncData() {
-    this.getItemsFromServer()
+  putServer(item: Item): Observable<Item> {
+    return this.http.put<Item>(this.itemsUrl, item, httpOptions)
+      .pipe(
+        catchError(handleError)
+      );
+  }
+
+  syncItems() {
+    this.getServer()
       .subscribe(data => {
-        function updateList(currentList: Item[], listToUpdate: Item[]): Item[] {
-          for (let item of currentList) {
-            let exists = listToUpdate.find(toUpItem => toUpItem.id === item.id);
-            if (!exists) {
-              listToUpdate.push(item);
+        let local = this.getLocal();
+        const server: Item[] = data['items'];
+
+        server.forEach(serverItem => {
+          let i = local.findIndex(localItem => localItem.id === serverItem.id);
+          if (i >= 0) {
+            if (serverItem !== local[i]) {
+              let compare = new Date(serverItem.ultimaAlteracao) < new Date(local[i].ultimaAlteracao);
+              if (compare) {
+                local[i] = serverItem;
+              } else {
+                this.putServer(local[i]);
+              }
             }
+          } else {
+            local.push(serverItem);
           }
-          return listToUpdate;
-        }
-        const local = updateList(data['items'], this.getLocalItems());
-        const server = updateList(this.getLocalItems(), data['items']);
-        // Update local database
+        });
+        local.forEach(localItem => {
+          let i = server.findIndex(serverItem => serverItem.id === localItem.id);
+          if (i < 0) {
+            this.postServer(localItem);
+          }
+        });
+
         localStorage.setItem('items', JSON.stringify(local));
-        // Update server database
-        this.saveServerItems(server);
       });
   }
 }
