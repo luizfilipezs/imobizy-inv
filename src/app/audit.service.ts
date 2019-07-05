@@ -58,7 +58,7 @@ export class AuditingService {
 
   // sync local and server database
 
-  sync() {
+  syncAudits() {
     this.getServer()
       .subscribe(data => {
         const local = this.getLocal();
