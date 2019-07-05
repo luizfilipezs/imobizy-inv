@@ -11,37 +11,27 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    data: {
-      animation: 'Login'
-    }
+    data: { animation: 'Login' }
   },
   {
     path: 'dashboard',
     component: DashboardComponent,
-    data: {
-      animation: 'Dashboard'
-    }
+    data: { animation: 'Dashboard' }
   },
   {
     path: 'scanner/:type',
     component: ScannerComponent,
-    data: {
-      animation: 'Scanner'
-    }
+    data: { animation: 'Scanner' }
   },
   {
     path: 'details/:id',
     component: DetailsComponent,
-    data: {
-      animation: 'Details'
-    }
+    data: { animation: 'Details' }
   },
   {
     path: 'confirm',
     component: ConfirmComponent,
-    data: {
-      animation: 'Confirm'
-    }
+    data: { animation: 'Confirm' }
   },
   {
     path: '',
