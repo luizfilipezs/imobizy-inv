@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
+
+import { Item } from '../item';
 
 @Component({
   selector: 'app-scanner',
@@ -9,7 +10,9 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 })
 export class ScannerComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router) { }
 
   ngOnInit() {
   }
