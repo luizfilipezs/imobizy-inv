@@ -1,3 +1,5 @@
+import { AuditService } from './audit.service';
+
 export class AuditedItem {
   id: number;
   qntd = 1;
@@ -9,4 +11,7 @@ export class Audit {
   docNum: number;
   itens: AuditedItem[];
   ultimaAlteracao: Date;
+  constructor(private auditService: AuditService) {
+    this.id = auditService.generateID();
+  }
 }

@@ -18,11 +18,21 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class AuditingService {
+export class AuditService {
 
   auditsUrl = 'assets/audits.json';
 
   constructor(private http: HttpClient) { }
+
+  generateID(): number {
+    let i = 0;
+    let id: number;
+    while (i >= 0) {
+      id = Math.floor(Math.random() * 99999999999);
+      i = this.getLocal().findIndex(item => item.id === id);
+    }
+    return id;
+  }
 
   // local operations
 
