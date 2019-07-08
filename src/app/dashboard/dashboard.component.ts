@@ -7,8 +7,6 @@ import { ItemService } from '../item.service';
 import { Audit } from '../audit';
 import { AuditService } from '../audit.service';
 
-import { percent } from '../utilities';
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -19,7 +17,6 @@ export class DashboardComponent implements OnInit {
   items: Item[] = [];
   audits: Audit[] = [];
   currentAudit: Audit;
-
   listIsOpen = true;
 
   constructor(
@@ -67,5 +64,9 @@ export class DashboardComponent implements OnInit {
     if (this.currentAudit) {
       this.router.navigate(['/scanner', this.currentAudit.id]);
     }
+  }
+
+  percent(cur1: number, cur2: number, total1?: number): number {
+    return (cur2 * (total1 || 100)) / cur1;
   }
 }

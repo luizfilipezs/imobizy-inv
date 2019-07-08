@@ -20,19 +20,25 @@ export const fadeInAnimation =
           width: '100%',
           opacity: 1
         })
-      ]),
+      ], 
+      { optional: true }),
       query(':enter', [
         style({ opacity: 0})
-      ]),
-      query(':leave', animateChild()),
+      ], 
+      { optional: true }),
+      query(':leave', animateChild(), 
+      { optional: true }),
       group([
         query(':leave', [
           animate('300ms ease-out', style({ opacity: 0}))
-        ]),
+        ], 
+        { optional: true }),
         query(':enter', [
           animate('300ms ease-out', style({ opacity: 1}))
-        ])
+        ], 
+        { optional: true })
       ]),
-      query(':enter', animateChild()),
+      query(':enter', animateChild(), 
+      { optional: true }),
     ])
   ]);
