@@ -7,6 +7,7 @@ import { handleError } from './handleError';
 import { catchError } from 'rxjs/operators';
 
 import { Audit } from './audit';
+import { generateID } from './utilities';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -25,6 +26,13 @@ export class AuditService {
   constructor(private http: HttpClient) { }
 
   // local operations
+
+  createAudit(): Audit {
+    let id = generateID(this.getLocal());
+    let audit = new Audit(id, 1234143);
+    this.saveLocal(audit);
+    return audit;
+  }
 
   getLocal(): Audit[] {
     return JSON.parse(localStorage.getItem('audits')) || [];

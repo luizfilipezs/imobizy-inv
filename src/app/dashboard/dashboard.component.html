@@ -34,12 +34,12 @@
   </div>
 
   <div class="messenger-footer">
-    <p class="useful-message">{{ currentAudit ? percent(items.length, currentAudit.items.length) + "% dos ítens registrados foram auditados" : 'Registre patrimônios e comece a auditar tocando em "+ Auditar"' }}</p>
+    <p class="useful-message">{{ currentAudit ? percent(items.length, currentAudit.itens.length) + "% dos ítens registrados foram auditados" : 'Registre patrimônios e comece a auditar tocando em "+ Auditar"' }}</p>
   </div>
 
   <div class="audits-list-box">
     <p class="exit-button" (click)="toggleAuditsList()">x</p>
-    <p class="audits-list-item new-item">+ Novo documento</p>
+    <p class="audits-list-item new-item" (click)="createDocument()">+ Novo documento</p>
     <p *ngFor="let audit of audits" class="audits-list-item" (click)="selectAudit(audit)">{{ audit.docNum }}</p>
   </div>
   

@@ -69,4 +69,9 @@ export class DashboardComponent implements OnInit {
   percent(cur1: number, cur2: number, total1?: number): number {
     return (cur2 * (total1 || 100)) / cur1;
   }
+
+  createDocument(): void {
+    let audit = this.auditService.createAudit();
+    this.selectAudit(audit);
+  }
 }

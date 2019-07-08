@@ -3,7 +3,7 @@ export function generateID(list: any[]): number {
   let id: number;
   while (i >= 0) {
     id = Math.floor(Math.random() * 99999999999);
-    i = this.list.findIndex(item => item.id === id);
+    i = list.findIndex(item => item.id === id);
   }
   return id;
 }
