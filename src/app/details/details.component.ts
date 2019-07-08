@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Item } from '../item';
 import { ItemService } from '../item.service';
@@ -14,8 +14,9 @@ export class DetailsComponent implements OnInit {
   item: Item;
 
   constructor(
+    private itemService: ItemService, 
     private route: ActivatedRoute, 
-    private service: ItemService
+    private router: Router
     ) { }
 
   ngOnInit() {
@@ -24,8 +25,22 @@ export class DetailsComponent implements OnInit {
 
   getItem() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.service.getItemsFromServer()
-      .subscribe(data => this.item = data['items'].find((item: Item) => item.id === id));
+    this.itemService.getServer()
+      .subscribe(data => {
+        let items = data['items'];
+        let i = items.find((item: Item) => item.id === id);
+        if (i >= 0) {
+          this.item = items[i];
+        } else {
+          this.item = new Item();
+          this.item.id = id;
+          this.itemService.saveLocal(this.item);
+        }
+      });
   }
 
+  saveItem(): void {
+    this.itemService.saveLocal(this.item);
+    this.router.navigate(['/dashboard']);
+  }
 }
