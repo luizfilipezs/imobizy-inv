@@ -27,6 +27,16 @@ export class ItemService {
   getLocal(): Item[] {
     return JSON.parse(localStorage.getItem('items')) || [];
   }
+  getLocalItem(id: number) {
+    let item = this.getLocal().find(item => item.id === id);
+    if (typeof item === 'undefined') {
+      let newItem = new Item();
+      newItem.id = id;
+      this.saveLocal(newItem);
+      return newItem;
+    }
+    return item;
+  }
 
   // local operations
 
