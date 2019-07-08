@@ -1,7 +1,7 @@
 <div [@openCloseMenu]="isOpen ? 'open' : 'closed'" class="main-menu">
   <ul class="menu-items">
     <li class="menu-item">
-      <a routerLink="/login">Sair</a>
+      <a routerLink="/login">Sair ({{ user.username }})</a>
     </li>
     <div class="line"></div>
     <li class="menu-item">

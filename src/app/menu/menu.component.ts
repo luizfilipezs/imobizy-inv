@@ -7,6 +7,8 @@ import {
   transition
 } from '@angular/animations';
 
+import { User } from '../user';
+
 @Component({
   selector: 'app-menu',
   animations: [
@@ -47,10 +49,12 @@ import {
 export class MenuComponent implements OnInit {
 
   @Input() isOpen: boolean;
+  user: User;
 
   constructor() { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
 }
