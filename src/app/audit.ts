@@ -1,17 +1,23 @@
-import { AuditService } from './audit.service';
-
 export class AuditedItem {
   id: number;
   qntd: number;
-  dataAuditoria: Date;
+  dataAuditoria: string;
+  constructor(id: number, qntd?: number) {
+    this.id = id;
+    this.qntd = 1;
+    this.dataAuditoria = new Date().toDateString();
+  }
 }
 
 export class Audit {
   id: number;
   docNum: number;
   itens: AuditedItem[];
-  ultimaAlteracao: Date;
-  constructor(private auditService: AuditService) {
-    this.id = auditService.generateID();
+  ultimaAlteracao: string;
+  constructor(id: number, docNum: number) {
+    this.id = id;
+    this.docNum = docNum;
+    this.itens = [];
+    this.ultimaAlteracao = new Date().toDateString();
   }
 }

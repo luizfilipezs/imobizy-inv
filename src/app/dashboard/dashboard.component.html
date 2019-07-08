@@ -23,7 +23,7 @@
       <p class="small-text">ítens<br><span class="stronger">auditados</span></p>
     </div>
     <div class="half-box">
-      <div class="basic-button">
+      <div class="basic-button" (click)="toggleAuditsList()">
         <p class="btn-text">{{ currentAudit ? currentAudit.docNum : "+ Auditoria"}}</p>
         <img class="btn-icon" src="assets/icons/down-arrow.png" alt="Abrir menu de auditorias">
      </div>
@@ -35,6 +35,12 @@
 
   <div class="messenger-footer">
     <p class="useful-message">{{ currentAudit ? percent(items.length, currentAudit.items.length) + "% dos ítens registrados foram auditados" : 'Registre patrimônios e comece a auditar tocando em "+ Auditar"' }}</p>
+  </div>
+
+  <div class="audits-list-box">
+    <p class="exit-button" (click)="toggleAuditsList()">x</p>
+    <p class="audits-list-item new-item">+ Novo documento</p>
+    <p *ngFor="let audit of audits" class="audits-list-item" (click)="selectAudit(audit)">{{ audit.docNum }}</p>
   </div>
   
 </div>

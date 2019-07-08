@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Item } from '../item';
 import { ItemService } from '../item.service';
 
 import { Audit } from '../audit';
 import { AuditService } from '../audit.service';
-import { Router } from '@angular/router';
-import { currentId } from 'async_hooks';
+
+import { percent } from '../utilities';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,6 +19,8 @@ export class DashboardComponent implements OnInit {
   items: Item[] = [];
   audits: Audit[] = [];
   currentAudit: Audit;
+
+  listIsOpen = true;
 
   constructor(
     private itemSerice: ItemService,
@@ -48,8 +51,16 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  percent(cur1: number, cur2: number, total1?: number): number {
-    return (cur2 * (total1 || 100)) / cur1;
+  selectAudit(audit: Audit): void {
+    this.currentAudit = audit;
+    localStorage.setItem('currentAudit', JSON.stringify(audit));
+    this.toggleAuditsList();
+  }
+
+  toggleAuditsList(): void {
+    this.listIsOpen = !this.listIsOpen;
+    let box = document.querySelector('.audits-list-box') as HTMLElement;
+    box.style.zIndex = this.listIsOpen ? '-2' : '2';
   }
 
   redirectAudit(): void {

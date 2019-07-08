@@ -55,3 +55,37 @@
     text-align: center;
   }
 }
+
+.audits-list-box {
+  position: fixed;
+  @include z-index(-2);
+  top: 10vh;
+  left: 10%;
+  width: 70%;
+  height: calc(80vh - 1.5em);
+  padding: 1.5em 5% 0 5%;
+  overflow: auto;
+  border-radius: 2.5em;
+  @include box-shadow(0 0 2em -4px rgba(0,0,0,0.4));
+  background-color: rgba($textColor2, 0.97);
+  .exit-button {
+    @include z-index(-2);
+    font-size: 3.5em;
+    font-weight: 900;
+    float: right;
+    cursor: pointer;
+  }
+  .audits-list-item {
+    width: calc(100% - 1.5em);
+    padding: .75em;
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+  }
+  .new-item {
+    margin-top: calc(15vh - 1.5em);
+    font-weight: 900;
+    border-bottom: 0.15em solid $textColor;
+  }
+}
