@@ -33,6 +33,10 @@
     .basic-button {
       flex-basis: 90%;
     }
+    .disabled-btn {
+      opacity: 0.55;
+      cursor: default;
+    }
   }
 }
 

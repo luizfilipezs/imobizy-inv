@@ -2,7 +2,7 @@ import { AuditService } from './audit.service';
 
 export class AuditedItem {
   id: number;
-  qntd = 1;
+  qntd: number;
   dataAuditoria: Date;
 }
 

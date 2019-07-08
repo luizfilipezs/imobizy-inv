@@ -19,6 +19,11 @@ const routes: Routes = [
     data: { animation: 'Dashboard' }
   },
   {
+    path: 'scanner',
+    component: ScannerComponent,
+    data: { animation: 'Scanner' }
+  },
+  {
     path: 'scanner/:type',
     component: ScannerComponent,
     data: { animation: 'Scanner' }

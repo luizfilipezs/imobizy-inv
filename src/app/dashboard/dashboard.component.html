@@ -26,15 +26,15 @@
       <div class="basic-button">
         <p class="btn-text">{{ currentAudit ? currentAudit.docNum : "+ Auditoria"}}</p>
         <img class="btn-icon" src="assets/icons/down-arrow.png" alt="Abrir menu de auditorias">
-      </div>
-      <div class="basic-button">
-        <p class="btn-text">+ Registrar</p>
+     </div>
+      <div class="basic-button" [class.disabled-btn]="!currentAudit">
+        <p class="btn-text" (click)="redirectAudit()">+ Registrar</p>
       </div>
     </div>
   </div>
 
   <div class="messenger-footer">
-    <p class="useful-message">{{ currentAudit ? "20% dos ítens registrados foram auditados" : 'Registre patrimônios e comece a auditar tocando em "+ Auditar"' }}</p>
+    <p class="useful-message">{{ currentAudit ? percent(items.length, currentAudit.items.length) + "% dos ítens registrados foram auditados" : 'Registre patrimônios e comece a auditar tocando em "+ Auditar"' }}</p>
   </div>
   
 </div>

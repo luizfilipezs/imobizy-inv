@@ -51,6 +51,21 @@ export class AuditService {
     localStorage.setItem('audits', JSON.stringify(localDB));
   }
 
+  addItem(auditID: number, itemID: number) {
+    let AUDIT = this.getLocal().find(audit => audit.id === auditID);
+    if (typeof AUDIT !== 'undefined') {
+      let itemIndex = AUDIT.itens.findIndex(item => item.id === itemID);
+      if (itemIndex < 0) {
+        AUDIT.itens.push({
+          id: itemID,
+          qntd: 1,
+          dataAuditoria: new Date()
+        })
+      }
+    }
+    this.saveLocal(AUDIT);
+  }
+
   deleteLocal(id: number): void {
     let local = this.getLocal();
     const i = local.findIndex(audit => audit.id === id);

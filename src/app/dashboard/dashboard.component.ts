@@ -5,6 +5,8 @@ import { ItemService } from '../item.service';
 
 import { Audit } from '../audit';
 import { AuditService } from '../audit.service';
+import { Router } from '@angular/router';
+import { currentId } from 'async_hooks';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,7 +19,10 @@ export class DashboardComponent implements OnInit {
   audits: Audit[] = [];
   currentAudit: Audit;
 
-  constructor(private itemSerice: ItemService, private auditService: AuditService) { }
+  constructor(
+    private itemSerice: ItemService,
+    private auditService: AuditService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getItems();
@@ -43,4 +48,13 @@ export class DashboardComponent implements OnInit {
     }
   }
 
+  percent(cur1: number, cur2: number, total1?: number): number {
+    return (cur2 * (total1 || 100)) / cur1;
+  }
+
+  redirectAudit(): void {
+    if (this.currentAudit) {
+      this.router.navigate(['/scanner', this.currentAudit.id]);
+    }
+  }
 }
