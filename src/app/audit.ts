@@ -8,5 +8,5 @@ export class Audit {
   id: number;
   docNum: number;
   itens: AuditedItem[];
-  sincronizado: boolean;
+  ultimaAlteracao: Date;
 }
