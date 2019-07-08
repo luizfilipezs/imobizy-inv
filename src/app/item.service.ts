@@ -24,9 +24,12 @@ export class ItemService {
 
   constructor(private http: HttpClient) { }
 
+  // local operations
+
   getLocal(): Item[] {
     return JSON.parse(localStorage.getItem('items')) || [];
   }
+
   getLocalItem(id: number) {
     let item = this.getLocal().find(item => item.id === id);
     if (typeof item === 'undefined') {
@@ -38,8 +41,6 @@ export class ItemService {
     return item;
   }
 
-  // local operations
-
   saveLocal(item: Item): void {
     let local = this.getLocal();
     const i = local.findIndex(localItem => localItem.id === item.id);
@@ -47,6 +48,15 @@ export class ItemService {
       local[i] = item;
     } else {
       local.push(item);
+    }
+    localStorage.setItem('items', JSON.stringify(local));
+  }
+
+  deleteLocal(id: number) {
+    let local = this.getLocal();
+    const i = local.findIndex(item => item.id === id);
+    if (i >= 0) {
+      local.splice(i, 1);
     }
     localStorage.setItem('items', JSON.stringify(local));
   }

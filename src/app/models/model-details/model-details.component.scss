@@ -1,8 +1,0 @@
-@import '../../../resources.scss';
-
-.main {
-  min-height: calc(100vh - 12.5em);
-  padding-top: 12.5em;
-}
-
-@include placeholder($textColor2);

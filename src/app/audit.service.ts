@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { handleError } from './handleError';
-import { catchError, audit } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 import { Audit } from './audit';
 
@@ -31,9 +31,23 @@ export class AuditingService {
   }
 
   saveLocal(audit: Audit): void {
-    let localDB: Audit[] = JSON.parse(localStorage.getItem('audits')) || [];
-    localDB.push(audit);
+    let localDB = this.getLocal();
+    const i = localDB.findIndex(localAudit => localAudit.id === audit.id);
+    if (i >= 0) {
+      localDB[i] = audit;
+    } else {
+      localDB.push(audit);
+    }
     localStorage.setItem('audits', JSON.stringify(localDB));
+  }
+
+  deleteLocal(id: number): void {
+    let local = this.getLocal();
+    const i = local.findIndex(audit => audit.id === id);
+    if (i >= 0) {
+      local.splice(i, 1);
+    }
+    localStorage.setItem('audits', JSON.stringify(local));
   }
 
   // server operations

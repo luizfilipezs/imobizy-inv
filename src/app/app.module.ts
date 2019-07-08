@@ -11,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { DetailsComponent } from './details/details.component';
 import { ScannerComponent } from './scanner/scanner.component';
 import { MenuComponent } from './menu/menu.component';
-import { ModelsModule } from './models/models.module';
 import { ConfirmComponent } from './confirm/confirm.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { ConfirmComponent } from './confirm/confirm.component';
   ],
   imports: [
     BrowserModule,
-    ModelsModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule
