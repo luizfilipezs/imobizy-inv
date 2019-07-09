@@ -1,3 +1,19 @@
 <div [@routeAnimations]="prepareRoute(outlet)" >
   <router-outlet #outlet="outlet"></router-outlet>
 </div>
+
+<div *ngIf="messageService.messages.length"
+     (click)="messageService.clear()"
+     class="message-background-mask"
+>
+  <div *ngFor="let message of messageService.messages"
+       class="message-box"
+       [class.success]="message.severity == 0"
+       [class.warning]="message.severity == 1"
+       [class.error]="message.severity == 2">
+    <p class="message-body">
+      {{ message.body }}
+    </p>
+    <p class="exit-message-btn" (click)="messageService.clear()">x</p>
+  </div>
+</div>

@@ -9,6 +9,14 @@
   align-self: center;
   height: 37.48vh;
 }
+.basic-centered-wrapper {
+  margin-top: 4em;
+  .text-logo {
+    flex-basis: auto;
+    align-self: center;
+    height: 2.7em;
+  }
+}
 
 .centered-box {
   flex-basis: 100%;
