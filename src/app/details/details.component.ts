@@ -47,7 +47,7 @@ export class DetailsComponent implements OnInit {
     } else {
       this.messageService.add({
         severity: Severity.Warning,
-        body: 'Preencha todos os campos!'
+        body: 'Falta pouco! Apenas preencha os campos que faltam...'
       });
     }
   }
