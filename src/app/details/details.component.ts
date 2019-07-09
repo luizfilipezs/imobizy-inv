@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { Item } from '../item';
 import { ItemService } from '../item.service';
+import { generateID } from '../utilities';
 
 @Component({
   selector: 'app-details',
@@ -11,7 +12,7 @@ import { ItemService } from '../item.service';
 })
 export class DetailsComponent implements OnInit {
 
-  item: Item;
+  item = new Item(generateID(this.itemService.getLocal()));
 
   constructor(
     private itemService: ItemService, 
@@ -20,13 +21,6 @@ export class DetailsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.getItem();
-    console.log(this.itemService.getLocal());
-  }
-
-  getItem() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.item = this.itemService.getLocalItem(id);
   }
 
   saveItem(): void {

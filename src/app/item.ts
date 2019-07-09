@@ -8,4 +8,7 @@ export class Item {
   fotos: string[];
   local: string;
   ultimaAlteracao: Date;
+  constructor(id: number) {
+    this.id = id;
+  }
 }

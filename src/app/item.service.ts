@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 import { Observable } from 'rxjs';
-
 import { handleError } from './handleError';
 import { catchError } from 'rxjs/operators'; 
 
 import { Item } from './item';
+import { generateID } from './utilities';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -33,7 +32,7 @@ export class ItemService {
   getLocalItem(id: number) {
     let item = this.getLocal().find(item => item.id === id);
     if (typeof item === 'undefined') {
-      let newItem = new Item();
+      let newItem = new Item(generateID(this.getLocal()));
       newItem.id = id;
       this.saveLocal(newItem);
       return newItem;

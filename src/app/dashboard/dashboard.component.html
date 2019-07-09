@@ -27,8 +27,8 @@
         <p class="btn-text">{{ currentAudit ? currentAudit.docNum : "+ Auditoria"}}</p>
         <img class="btn-icon" src="assets/icons/down-arrow.png" alt="Abrir menu de auditorias">
      </div>
-      <div class="basic-button" [class.disabled-btn]="!currentAudit">
-        <p class="btn-text" (click)="redirectAudit()">+ Registrar</p>
+      <div class="basic-button" [class.disabled-btn]="!currentAudit" (click)="redirectAudit()">
+        <p class="btn-text">+ Registrar</p>
       </div>
     </div>
   </div>
