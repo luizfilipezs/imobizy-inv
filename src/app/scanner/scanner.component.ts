@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuditService } from '../audit.service';
+import { openQRCamera } from './scanner';
 
 @Component({
   selector: 'app-scanner',
@@ -16,6 +17,9 @@ export class ScannerComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    (document.querySelector('#input') as HTMLElement).onchange = function() {
+      openQRCamera(this);
+    }
   }
 
   redirect(): void {

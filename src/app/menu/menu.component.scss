@@ -21,6 +21,12 @@
       font-size: 2em;
       text-align: right;
       text-transform: capitalize;
+      a {
+        width: 100%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
     }
     .line {
       margin-bottom: 2em;
