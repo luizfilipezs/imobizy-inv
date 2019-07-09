@@ -24,7 +24,7 @@ const routes: Routes = [
     data: { animation: 'Scanner' }
   },
   {
-    path: 'scanner/:type',
+    path: 'scanner/:auditID',
     component: ScannerComponent,
     data: { animation: 'Scanner' }
   },

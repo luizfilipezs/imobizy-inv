@@ -20,7 +20,7 @@ export class ScannerComponent implements OnInit {
 
   redirect(): void {
     const itemID = 1; // Here we get id from the scanner
-    const auditID = +this.route.snapshot.paramMap.get('type');
+    const auditID = +this.route.snapshot.paramMap.get('auditID');
     if (auditID) {
       this.auditService.addItem(auditID, itemID);
       this.router.navigate(['/confirm']);

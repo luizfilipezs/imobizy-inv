@@ -40,22 +40,6 @@
   }
 }
 
-.messenger-footer {
-  position: fixed;
-  @include z-index(1);
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  padding: .7em 0 .7em 0;
-  background-color: #D0D0D0;
-  .useful-message {
-    font-size: 1.6em;
-    font-weight: 700;
-    text-align: center;
-  }
-}
-
 .audits-list-box {
   position: fixed;
   @include z-index(-2);
@@ -87,5 +71,21 @@
     margin-top: calc(15vh - 1.5em);
     font-weight: 900;
     border-bottom: 0.15em solid $textColor;
+  }
+}
+
+.messenger-footer {
+  position: fixed;
+  @include z-index(1);
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: auto;
+  padding: .7em 5% .7em 5%;
+  background-color: #D0D0D0;
+  .useful-message {
+    font-size: 1.6em;
+    font-weight: 700;
+    text-align: center;
   }
 }

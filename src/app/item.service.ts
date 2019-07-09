@@ -5,7 +5,6 @@ import { handleError } from './handleError';
 import { catchError } from 'rxjs/operators'; 
 
 import { Item } from './item';
-import { generateID } from './utilities';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,14 +29,7 @@ export class ItemService {
   }
 
   getLocalItem(id: number) {
-    let item = this.getLocal().find(item => item.id === id);
-    if (typeof item === 'undefined') {
-      let newItem = new Item(generateID(this.getLocal()));
-      newItem.id = id;
-      this.saveLocal(newItem);
-      return newItem;
-    }
-    return item;
+    return this.getLocal().find(item => item.id === id) || id;
   }
 
   saveLocal(item: Item): void {
