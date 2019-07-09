@@ -19,7 +19,7 @@
 
   <div class="wrapper">
     <div class="half-box">
-      <p class="big-numbers">{{ audits.length }}</p>
+      <p class="big-numbers">{{ currentAudit ? currentAudit.itens.length : 0 }}</p>
       <p class="small-text">ítens<br><span class="stronger">auditados</span></p>
     </div>
     <div class="half-box">
@@ -40,7 +40,7 @@
   <div class="audits-list-box">
     <p class="exit-button" (click)="toggleAuditsList()">x</p>
     <p class="audits-list-item new-item" (click)="createDocument()">+ Novo documento</p>
-    <p *ngFor="let audit of audits" class="audits-list-item" (click)="selectAudit(audit)">{{ audit.docNum }}</p>
+    <p *ngFor="let audit of audits" class="audits-list-item" (click)="selectAudit(audit.id)">{{ audit.docNum }}</p>
   </div>
   
 </div>

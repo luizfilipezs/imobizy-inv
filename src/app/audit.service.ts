@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
 import { handleError } from './handleError';
 import { catchError } from 'rxjs/operators';
 
-import { Audit } from './audit';
-import { generateID } from './utilities';
+import { Audit, AuditedItem } from './audit';
+import { generateID, insertZero } from './utilities';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -28,14 +28,21 @@ export class AuditService {
   // local operations
 
   createAudit(): Audit {
-    let id = generateID(this.getLocal());
-    let audit = new Audit(id, 1234143);
+    const id = generateID(this.getLocal()),
+      documentsNumber = insertZero(this.getLocal().length + 1),
+      date = new Date(),
+      docNum = (insertZero(date.getDate()) + insertZero((date.getMonth() + 1)) + date.getFullYear() + documentsNumber).toString(),
+      audit = new Audit(id, docNum);
     this.saveLocal(audit);
     return audit;
   }
 
   getLocal(): Audit[] {
     return JSON.parse(localStorage.getItem('audits')) || [];
+  }
+
+  getLocalAudit(id: number): Audit {
+    return this.getLocal().find(audit => audit.id === id);
   }
 
   saveLocal(audit: Audit): void {
@@ -54,11 +61,7 @@ export class AuditService {
     if (typeof AUDIT !== 'undefined') {
       let itemIndex = AUDIT.itens.findIndex(item => item.id === itemID);
       if (itemIndex < 0) {
-        AUDIT.itens.push({
-          id: itemID,
-          qntd: 1,
-          dataAuditoria: ''
-        })
+        AUDIT.itens.push(new AuditedItem(itemID));
       }
     }
     this.saveLocal(AUDIT);

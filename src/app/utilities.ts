@@ -11,3 +11,7 @@ export function generateID(list: any[]): number {
 export function percent(cur1: number, cur2: number, total1?: number): number {
   return (cur2 * (total1 || 100)) / cur1;
 }
+
+export function insertZero(i: number): string {
+  return (i < 10 ? "0" + i : i).toString();
+}

@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 
 import { Item } from '../item';
 import { ItemService } from '../item.service';
-
 import { Audit } from '../audit';
 import { AuditService } from '../audit.service';
 
@@ -39,18 +38,18 @@ export class DashboardComponent implements OnInit {
   }
 
   getCurrentAudit(): void {
-    let localAuditID: number = JSON.parse(localStorage.getItem('currentAudit'));
+    const localAuditID: number = JSON.parse(localStorage.getItem('currentAudit'));
     if (localAuditID !== null) {
-      let curAudit = this.auditService.getLocal().find(audit => audit.id === localAuditID);
+      const curAudit = this.auditService.getLocalAudit(localAuditID);
       if (typeof curAudit !== 'undefined') {
         this.currentAudit = curAudit;
       }
     }
   }
 
-  selectAudit(audit: Audit): void {
-    this.currentAudit = audit;
-    localStorage.setItem('currentAudit', JSON.stringify(audit));
+  selectAudit(id: number): void {
+    localStorage.setItem('currentAudit', JSON.stringify(id));
+    this.getCurrentAudit();
     this.toggleAuditsList();
   }
 
@@ -67,11 +66,13 @@ export class DashboardComponent implements OnInit {
   }
 
   percent(cur1: number, cur2: number, total1?: number): number {
-    return (cur2 * (total1 || 100)) / cur1;
+    const calc = (cur2 * (total1 || 100)) / (cur1 || 1);
+    return calc !== NaN ? calc : 0;
   }
 
   createDocument(): void {
-    let audit = this.auditService.createAudit();
-    this.selectAudit(audit);
+    const audit = this.auditService.createAudit();
+    this.selectAudit(audit.id);
+    this.getAudits();
   }
 }
