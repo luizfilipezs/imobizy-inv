@@ -21,7 +21,7 @@ const httpOptions = {
 })
 export class AuditService {
 
-  auditsUrl = 'assets/audits.json';
+  auditsUrl = 'api/audits';
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +31,7 @@ export class AuditService {
     const id = generateID(this.getLocal()),
       documentsNumber = insertZero(this.getLocal().length + 1),
       date = new Date(),
-      docNum = (insertZero(date.getDate()) + insertZero((date.getMonth() + 1)) + date.getFullYear() + documentsNumber).toString(),
+      docNum = (date.getFullYear() + insertZero(date.getMonth() + 1) + insertZero(date.getDate()) + documentsNumber).toString(),
       audit = new Audit(id, docNum);
     this.saveLocal(audit);
     return audit;
@@ -57,9 +57,9 @@ export class AuditService {
   }
 
   addItem(auditID: number, itemID: number) {
-    let AUDIT = this.getLocal().find(audit => audit.id === auditID);
+    const AUDIT = this.getLocal().find(audit => audit.id === auditID);
     if (typeof AUDIT !== 'undefined') {
-      let itemIndex = AUDIT.itens.findIndex(item => item.id === itemID);
+      const itemIndex = AUDIT.itens.findIndex(item => item.id === itemID);
       if (itemIndex < 0) {
         AUDIT.itens.push(new AuditedItem(itemID));
       }

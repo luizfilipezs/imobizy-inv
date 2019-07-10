@@ -18,7 +18,7 @@ const httpOptions = {
 })
 export class ItemService {
 
-  itemsUrl = 'assets/items.json';
+  itemsUrl = 'api/items';
 
   constructor(private http: HttpClient) { }
 
